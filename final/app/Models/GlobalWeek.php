@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class GlobalWeek extends Model
 {
     protected $fillable = [
-        "global_week_number",
-        "start_week_date",
+        'global_week_number',
+        'start_week_date',
     ];
 
-    public function weeks(){
+    public function weeks()
+    {
         return $this->hasMany(Week::class);
     }
 }

@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Module extends Model
 {
     protected $fillable = [
-        "module_name",
+        'module_name',
     ];
+
     public function sectors()
     {
         return $this->belongsToMany(Sector::class, 'sectors_modules', 'module_id', 'sector_id');
@@ -16,6 +17,6 @@ class Module extends Model
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class,'teachers_modules','module_id','teacher_id');
+        return $this->belongsToMany(Teacher::class, 'teachers_modules', 'module_id', 'teacher_id');
     }
 }

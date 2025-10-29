@@ -3,7 +3,6 @@
 namespace App\Console\Commands\Traits;
 
 use ReflectionClass;
-use ReflectionMethod;
 
 trait ServiceProviderInjector
 {

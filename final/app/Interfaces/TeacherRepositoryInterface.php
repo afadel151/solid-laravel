@@ -2,7 +2,4 @@
 
 namespace App\Interfaces;
 
-interface TeacherRepositoryInterface
-{
-
-}
+interface TeacherRepositoryInterface {}

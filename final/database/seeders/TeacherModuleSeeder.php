@@ -5,10 +5,9 @@ namespace Database\Seeders;
 use App\Models\Module;
 use App\Models\Teacher;
 use App\Models\TeacherModule;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
-use Faker\Factory as Faker;
 class TeacherModuleSeeder extends Seeder
 {
     /**
@@ -17,9 +16,9 @@ class TeacherModuleSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        $teachers = Teacher::all()->pluck("id")->toArray();
-        $modules = Module::all()->pluck("id")->toArray();
-        
+        $teachers = Teacher::all()->pluck('id')->toArray();
+        $modules = Module::all()->pluck('id')->toArray();
+
         for ($i = 0; $i < 40; $i++) {
             TeacherModule::create([
                 'teacher_id' => $faker->randomElement($teachers),

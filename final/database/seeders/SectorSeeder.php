@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Sector;
-use App\Models\Year;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SectorSeeder extends Seeder
@@ -14,7 +12,7 @@ class SectorSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
         Sector::insert([
             ['sector_name' => 'Computer Science', 'year_id' => 1],
             ['sector_name' => 'Technical Science', 'year_id' => 1],

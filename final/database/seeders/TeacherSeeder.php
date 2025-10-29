@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Teacher;
 use Faker\Factory as Faker;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TeacherSeeder extends Seeder
@@ -15,7 +14,7 @@ class TeacherSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        
+
         for ($i = 0; $i < 30; $i++) {
             Teacher::create([
                 'teacher_name' => $faker->name,

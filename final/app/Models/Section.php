@@ -11,6 +11,4 @@ class Section extends Model
         'sector_id',
         'default_room_id',
     ];
-
-    
 }

@@ -4,7 +4,4 @@ namespace App\Services;
 
 use App\Interfaces\SessionServiceInterface;
 
-class SessionService implements SessionServiceInterface
-{
-
-}
+class SessionService implements SessionServiceInterface {}

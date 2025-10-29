@@ -13,16 +13,14 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
 Route::prefix('years')->group(function () {
-    Route::get('/',[YearController::class,'index'])->name('years.index');
+    Route::get('/', [YearController::class, 'index'])->name('years.index');
 });
 
 Route::prefix('modules')->group(function () {
-    Route::get('/',[ModuleController::class,'index'])->name('modules.index');
+    Route::get('/', [ModuleController::class, 'index'])->name('modules.index');
 });
-
-
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+require __DIR__.'/api.php';

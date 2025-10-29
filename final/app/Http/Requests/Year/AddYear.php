@@ -3,7 +3,8 @@
 namespace App\Http\Requests\Year;
 
 use Illuminate\Foundation\Http\FormRequest;
-//Validate incoming data from HTTP requests only.
+
+// Validate incoming data from HTTP requests only.
 class AddYear extends FormRequest
 {
     /**
@@ -22,7 +23,7 @@ class AddYear extends FormRequest
     public function rules(): array
     {
         return [
-            "year"=> "required|integer|unique:years,year",
+            'year' => 'required|integer|unique:years,year',
         ];
     }
 }

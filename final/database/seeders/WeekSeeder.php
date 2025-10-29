@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\GlobalWeek;
 use App\Models\Week;
 use App\Models\Year;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class WeekSeeder extends Seeder
@@ -20,7 +19,7 @@ class WeekSeeder extends Seeder
         $global_weeks_count = count($global_weeks);
         $first_half_global_weeks = array_slice($global_weeks, 0, intval($global_weeks_count / 2));
         $second_half_global_weeks = array_slice($global_weeks, intval($global_weeks_count / 2));
-        
+
         foreach ($first_half_global_weeks as $global_week) {
             foreach ($years as $year) {
                 Week::create([

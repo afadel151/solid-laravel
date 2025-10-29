@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Room;
 use App\Models\Section;
-use App\Models\Sector;
 use App\Models\Year;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SectionSeeder extends Seeder
@@ -29,10 +27,10 @@ class SectionSeeder extends Seeder
                     [
                         'section_name' => '2',
                         'sector_id' => $sector->id,
-                        'room_id' => $rooms[array_rand($rooms)], 
-                    ]
+                        'room_id' => $rooms[array_rand($rooms)],
+                    ],
                 ]
-            );
+                );
             }
         }
     }

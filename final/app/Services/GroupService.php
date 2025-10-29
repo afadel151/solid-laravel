@@ -4,7 +4,4 @@ namespace App\Services;
 
 use App\Interfaces\GroupServiceInterface;
 
-class GroupService implements GroupServiceInterface
-{
-
-}
+class GroupService implements GroupServiceInterface {}

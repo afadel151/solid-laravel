@@ -7,25 +7,29 @@ use App\Models\Timing;
 
 class TimingRepository implements TimingRepositoryInterface
 {
-    public function all(){
+    public function all()
+    {
         return Timing::all();
     }
-    
-    public function find($id){
+
+    public function find($id)
+    {
         return Timing::find($id);
     }
 
-    public function update(array $data){
+    public function update(array $data)
+    {
         Timing::update($data);
     }
 
-    public function create(array $data){
+    public function create(array $data)
+    {
         return Timing::create($data);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
 
         return Timing::find(id: $id)->delete();
     }
-    
 }

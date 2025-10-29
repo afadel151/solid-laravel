@@ -5,9 +5,9 @@ namespace Database\Seeders;
 use App\Models\Module;
 use App\Models\Sector;
 use App\Models\SectorModule;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
-use Faker\Factory as Faker;
 class SectorModuleSeeder extends Seeder
 {
     /**
@@ -26,6 +26,6 @@ class SectorModuleSeeder extends Seeder
                 'updated_at' => now(),
             ]);
         }
-        
+
     }
 }

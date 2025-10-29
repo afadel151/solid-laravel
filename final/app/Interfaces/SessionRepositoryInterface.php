@@ -2,7 +2,4 @@
 
 namespace App\Interfaces;
 
-interface SessionRepositoryInterface
-{
-
-}
+interface SessionRepositoryInterface {}

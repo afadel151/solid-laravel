@@ -22,8 +22,8 @@ class AddRoom extends FormRequest
     public function rules(): array
     {
         return [
-            "room"=> "string|required|unique:rooms,room",
-            "capacity_teaching"=> "integer|required",
+            'room' => 'string|required|unique:rooms,room',
+            'capacity_teaching' => 'integer|required',
         ];
     }
 }

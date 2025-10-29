@@ -9,15 +9,16 @@ class Year extends Model
 {
     // Here define Relationship with Sections, and Weeks
     protected $fillable = [
-        "year"
+        'year',
     ];
 
     // Reashionships:
-    public function sectors(): HasMany 
+    public function sectors(): HasMany
     {
         return $this->hasMany(Sector::class);
     }
-    public function weeks(): HasMany 
+
+    public function weeks(): HasMany
     {
         return $this->hasMany(Week::class);
     }

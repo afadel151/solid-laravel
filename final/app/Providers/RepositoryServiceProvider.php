@@ -2,32 +2,27 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 namespace App\Providers;
 
+use App\Interfaces\GlobalWeekRepositoryInterface;
+use App\Interfaces\GroupRepositoryInterface;
+use App\Interfaces\ModuleRepositoryInterface;
+use App\Interfaces\SectionRepositoryInterface;
+use App\Interfaces\SectorRepositoryInterface;
+use App\Interfaces\SessionRepositoryInterface;
+use App\Interfaces\TimingRepositoryInterface;
+use App\Interfaces\WeekRepositoryInterface;
+use App\Interfaces\YearRepositoryInterface;
+use App\Repositories\GlobalWeekRepository;
+use App\Repositories\GroupRepository;
+use App\Repositories\ModuleRepository;
+use App\Repositories\SectionRepository;
+use App\Repositories\SectorRepository;
+use App\Repositories\SessionRepository;
+use App\Repositories\TimingRepository;
+use App\Repositories\WeekRepository;
+use App\Repositories\YearRepository;
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\{
-    ModuleRepositoryInterface,
-    GlobalWeekRepositoryInterface,
-    WeekRepositoryInterface,
-    YearRepositoryInterface,
-    SectionRepositoryInterface,
-    GroupRepositoryInterface,
-    SectorRepositoryInterface,
-    SessionRepositoryInterface,
-    TimingRepositoryInterface
-};
-use App\Repositories\{
-    ModuleRepository,
-    GlobalWeekRepository,
-    WeekRepository,
-    YearRepository,
-    SectionRepository,
-    GroupRepository,
-    SectorRepository,
-    SessionRepository,
-    TimingRepository
-};
 
 class RepositoryServiceProvider extends ServiceProvider
 {

@@ -9,23 +9,24 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Week extends Model
 {
     protected $fillable = [
-       "global_week_id",
-       "year_id",
-       "semester"
+        'global_week_id',
+        'year_id',
+        'semester',
     ];
 
     // Relashionships:
-    public function global_week(): BelongsTo 
+    public function global_week(): BelongsTo
     {
         return $this->belongsTo(GlobalWeek::class);
     }
-    public function year(): BelongsTo 
+
+    public function year(): BelongsTo
     {
         return $this->belongsTo(Year::class);
     }
 
     public function learning_sessions(): HasMany
-{
+    {
         return $this->hasMany(LearningSession::class);
     }
 }

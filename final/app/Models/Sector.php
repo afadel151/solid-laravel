@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Sector extends Model
 {
-    protected $table = "sectors";
-
-
-
+    protected $table = 'sectors';
 
     // relationships
 
@@ -18,12 +15,13 @@ class Sector extends Model
     {
         return $this->belongsTo(Year::class);
     }
+
     public function sections()
     {
         return $this->hasMany(Section::class);
     }
 
-    public function modules():BelongsToMany
+    public function modules(): BelongsToMany
     {
         return $this->belongsToMany(Module::class, 'sectors_modules', 'sector_id', 'module_id');
     }

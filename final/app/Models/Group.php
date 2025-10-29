@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Group extends Model
 {
     protected $fillable = [
-        "group_number",
-        "section_id",
-        "nb_students",
-        "default_room_id"
+        'group_number',
+        'section_id',
+        'nb_students',
+        'default_room_id',
     ];
 
     public function section()
