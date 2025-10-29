@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->integer('group_number');
-            $table->foreignId(column: 'sector_id')->constrained('sectors')->cascadeOnDelete();
+            $table->foreignId(column: 'section_id')->constrained('sections')->cascadeOnDelete();
             $table->integer('nb_students');
             $table->foreignId('default_room_id')->constrained('rooms')->nullOnDelete();
             $table->timestamps();
