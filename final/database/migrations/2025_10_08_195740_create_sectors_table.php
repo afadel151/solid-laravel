@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sections', function (Blueprint $table) {
+        Schema::create('sectors', function (Blueprint $table) {
             $table->id();
-            $table->integer('section_number');
-            $table->string('sector');
-            $table->foreignId('sector_id')->constrained('sectors')->cascadeOnDelete();
-            $table->foreignId('default_room_id')->constrained('rooms')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sections');
+        Schema::dropIfExists('sectors');
     }
 };

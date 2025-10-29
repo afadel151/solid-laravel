@@ -13,6 +13,7 @@ use App\Interfaces\{
     YearRepositoryInterface,
     SectionRepositoryInterface,
     GroupRepositoryInterface,
+    SectorRepositoryInterface,
     SessionRepositoryInterface,
     TimingRepositoryInterface
 };
@@ -23,6 +24,7 @@ use App\Repositories\{
     YearRepository,
     SectionRepository,
     GroupRepository,
+    SectorRepository,
     SessionRepository,
     TimingRepository
 };
@@ -42,6 +44,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(GroupRepositoryInterface::class, GroupRepository::class);
         $this->app->bind(SessionRepositoryInterface::class, SessionRepository::class);
         $this->app->bind(TimingRepositoryInterface::class, TimingRepository::class);
+        $this->app->bind(SectorRepositoryInterface::class, SectorRepository::class);
     }
 
     /**
