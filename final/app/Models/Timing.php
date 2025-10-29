@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Timing extends Model
 {
-    //
+    protected $fillable = [
+        "session_start",
+        "session_finish"
+    ];
 }

@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GlobalWeek extends Model
 {
-    //
+    protected $fillable = [
+        "global_week_number",
+        "start_week_date",
+    ];
 }
