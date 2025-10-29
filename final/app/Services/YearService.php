@@ -21,4 +21,7 @@ class YearService
         return $this->repository->delete($id);
     }
     
+    public function createYear(array $data): Year {
+        return $this->repository->create($data);
+    }
 }
