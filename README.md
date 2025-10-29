@@ -165,5 +165,5 @@ This project is open-sourced under the [MIT license](LICENSE).
 
 **Akram**  
 Laravel Developer & Software Engineer  
-[LinkedIn](https://www.linkedin.com/in/akram-fadel-246129358/) • [GitHub](https://github.com/afadel151)
+[LinkedIn](https://www.linkedin.com/in/akram-fadel-246129358/) • [Portfolio](https://akramfadel.netlify.app)
 
