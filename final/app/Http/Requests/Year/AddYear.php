@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Year;
 
 use Illuminate\Foundation\Http\FormRequest;
 //Validate incoming data from HTTP requests only.
