@@ -8,8 +8,7 @@ class Section extends Model
 {
     protected $fillable = [
         "section_number",
-        "sector",
-        "year_id",
+        "sector_id",
         "default_room_id"
     ];
 }

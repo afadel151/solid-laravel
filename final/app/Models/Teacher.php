@@ -9,5 +9,6 @@ class Teacher extends Model
     protected $fillable = [
         'teacher_name',
         'teacher_grade',
+        'teacher_email'
     ];
 }

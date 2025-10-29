@@ -8,6 +8,12 @@ class Module extends Model
 {
     protected $fillable = [
         "module_name",
-        "year",
     ];
+
+
+
+    public function sectors()
+    {
+        return $this->belongsToMany(Sector::class, 'sectors_modules', 'module_id', 'sector_id');
+    }
 }

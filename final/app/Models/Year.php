@@ -13,9 +13,9 @@ class Year extends Model
     ];
 
     // Reashionships:
-    public function sections(): HasMany 
+    public function sectors(): HasMany 
     {
-        return $this->hasMany(Section::class);
+        return $this->hasMany(Sector::class);
     }
     public function weeks(): HasMany 
     {

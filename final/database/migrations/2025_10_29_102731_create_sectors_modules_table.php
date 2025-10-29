@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('sectors_modules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('sector_id')->constrained('sectors')->nullOnDelete();
+            $table->foreignId('module_id')->constrained('modules')->nullOnDelete();
             $table->timestamps();
         });
     }
