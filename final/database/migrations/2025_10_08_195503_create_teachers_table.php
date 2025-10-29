@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('lecture');
             $table->boolean('dw');
             $table->boolean('lab');
+             $table->timestamps();
         });
     }
 
