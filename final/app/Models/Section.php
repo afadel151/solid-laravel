@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     protected $fillable = [
-        "section_number",
-        "sector_id",
-        "default_room_id"
+        'section_number',
+        'sector_id',
+        'default_room_id',
     ];
+
+    
 }

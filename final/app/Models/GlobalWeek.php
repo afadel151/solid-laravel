@@ -10,4 +10,8 @@ class GlobalWeek extends Model
         "global_week_number",
         "start_week_date",
     ];
+
+    public function weeks(){
+        return $this->hasMany(Week::class);
+    }
 }
