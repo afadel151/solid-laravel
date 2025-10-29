@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('group_number');
             $table->foreignId(column: 'sector_id')->constrained('sectors')->cascadeOnDelete();
             $table->integer('nb_students');
+            $table->foreignId('default_room_id')->constrained('rooms')->nullOnDelete();
             $table->timestamps();
         });
     }
