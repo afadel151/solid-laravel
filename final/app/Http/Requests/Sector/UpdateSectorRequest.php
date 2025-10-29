@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Section;
+namespace App\Http\Requests\Sector;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddSection extends FormRequest
+class UpdateSectorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -44,7 +44,7 @@ class TimingController extends Controller
         ], 201);
     }
 
-    public function delete(Timing $timing)
+    public function destroy(Timing $timing)
     {
         $deleted = $this->timingService->deleteTiming($timing->id);
         if ($deleted) {
