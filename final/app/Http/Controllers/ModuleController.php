@@ -62,6 +62,7 @@ class ModuleController extends Controller
                 'message' => 'Module not found',
             ], 404);
         }
+
         return response()->json([
             'message' => 'Module deleted successfully',
         ], 200);

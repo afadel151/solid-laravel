@@ -12,43 +12,50 @@ use Inertia\Inertia;
 
 class GroupController extends Controller
 {
-
     private GroupService $groupService;
+
     public function __construct(GroupService $groupService)
     {
         $this->groupService = $groupService;
     }
+
     public function index()
     {
         return Inertia::render('groups/Index', [
-            'groups' ,GroupResource::make($this->groupService->getAll())
+            'groups', GroupResource::make($this->groupService->getAll()),
         ]);
     }
+
     public function show(Group $group)
     {
-        return Inertia::render('groups/Show',[
-            'group' => GroupResource::make($group)
+        return Inertia::render('groups/Show', [
+            'group' => GroupResource::make($group),
         ]);
     }
+
     public function store(CreateGroupRequest $request)
     {
         $data = $request->validated();
         $group = GroupResource::make($this->groupService->create($data));
+
         return response()->json([
             'message' => 'Group created successfully',
-            'group' => $group
-        ],201);
+            'group' => $group,
+        ], 201);
     }
+
     public function update(UpdateGroupRequest $request)
     {
         $data = Arr::except($request->validated(), ['id']);
         $id = $request->validated('id');
-        $group = GroupResource::make($this->groupService->update($id,$data));
+        $group = GroupResource::make($this->groupService->update($id, $data));
+
         return response()->json([
             'message' => 'Group updated successfully',
-            'group' => $group
-        ],200);
+            'group' => $group,
+        ], 200);
     }
+
     public function destroy(int $id)
     {
         $destroyed = $this->groupService->delete($id);
@@ -61,5 +68,4 @@ class GroupController extends Controller
             ], 404);
         }
     }
-
 }

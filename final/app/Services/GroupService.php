@@ -6,8 +6,10 @@ use App\Interfaces\GroupRepositoryInterface;
 use App\Models\Group;
 use Illuminate\Database\Eloquent\Collection;
 
-class GroupService  {
+class GroupService
+{
     protected GroupRepositoryInterface $groupRepository;
+
     public function __construct(GroupRepositoryInterface $groupRepository)
     {
         $this->groupRepository = $groupRepository;
@@ -17,19 +19,22 @@ class GroupService  {
     {
         return $this->groupRepository->all();
     }
-    public function getById($id): Group|null
+
+    public function getById($id): ?Group
     {
         return $this->groupRepository->findById($id);
     }
 
-    public function create(array $data):Group
+    public function create(array $data): Group
     {
         return $this->groupRepository->create($data);
     }
-    public function update(int $id,array $data): Group
+
+    public function update(int $id, array $data): Group
     {
-        return $this->groupRepository->update($id,$data);
+        return $this->groupRepository->update($id, $data);
     }
+
     public function delete(int $id): bool
     {
         return $this->groupRepository->delete($id);

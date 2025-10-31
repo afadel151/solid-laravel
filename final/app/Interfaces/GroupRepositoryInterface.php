@@ -5,11 +5,15 @@ namespace App\Interfaces;
 use App\Models\Group;
 use Illuminate\Database\Eloquent\Collection;
 
-interface GroupRepositoryInterface {
+interface GroupRepositoryInterface
+{
     public function all(): Collection;
-    public function findById(int $id):Group|null;
+
+    public function findById(int $id): ?Group;
 
     public function create(array $data): Group;
+
     public function update(int $id, array $data): Group;
+
     public function delete(int $id): bool;
 }

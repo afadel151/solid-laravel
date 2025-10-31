@@ -9,7 +9,7 @@ interface ModuleRepositoryInterface
 {
     public function all(): Collection;
 
-    public function findModuleById(int $id): Module|null;
+    public function findModuleById(int $id): ?Module;
 
     public function findModuleByName(string $name): ?Module;
 
