@@ -17,9 +17,13 @@ class SessionRepository implements SessionRepositoryInterface
         return LearningSession::find($id);
     }
 
-    public function getByAttribute(string $attribute, $value)
+    public function getByAttributes(array $attributes)
     {
-        return LearningSession::where($attribute, $value)->all();
+        $query = LearningSession::query();
+        foreach ($attributes as $key => $value) {
+            $query->where($key, $value);
+        }
+        return $query->get();
     }
 
     public function edit(LearningSession $learningSession, array $data)

@@ -31,11 +31,10 @@ class LearningSessionController extends Controller
         ], 200);
     }
 
-    public function find_by_attribute(LearningSessionFBARequest $request)
+    public function find_by_attributes(LearningSessionFBARequest $request)
     {
-        $attribute = $request->validated('attribute');
-        $value = $request->validated('value');
-        $sessions = $this->sessionService->getByAttribute($attribute, $value);
+        $attributes = $request->validated('attributes');
+        $sessions = $this->sessionService->getByAttributes($attributes);
         if (! $sessions) {
             return response()->json([
                 'message' => 'Mo result'], 404);

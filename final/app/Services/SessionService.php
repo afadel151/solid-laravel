@@ -38,8 +38,8 @@ class SessionService
         return $this->sessionRepository->delete($id);
     }
 
-    public function getByAttribute(string $attribute, $value)
+    public function getByAttributes(array $attributes)
     {
-        return $this->sessionRepository->getByAttribute($attribute, $value);
+        return $this->sessionRepository->getByAttributes($attributes);
     }
 }

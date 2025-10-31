@@ -27,10 +27,10 @@ class SectionController extends Controller
         ]);
     }
 
-    public function show(Section $section)
+    public function show(int $id)
     {
         return Inertia::render('sections/Show', [
-            'section' => new SectionResource($this->sectionService->getById($section->id)),
+            'section' => new SectionResource($this->sectionService->getById($id)),
         ]);
     }
 

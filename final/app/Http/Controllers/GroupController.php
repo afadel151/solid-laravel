@@ -27,10 +27,10 @@ class GroupController extends Controller
         ]);
     }
 
-    public function show(Group $group)
+    public function show(int $id)
     {
         return Inertia::render('groups/Show', [
-            'group' => new GroupResource($group),
+            'group' => new GroupResource($this->groupService->getById($id)),
         ]);
     }
 

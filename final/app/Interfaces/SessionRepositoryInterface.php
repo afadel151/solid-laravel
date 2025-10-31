@@ -18,5 +18,5 @@ interface SessionRepositoryInterface
 
     public function delete(int $id);
 
-    public function getByAttribute(string $attribute, $value);
+    public function getByAttributes(array $attributes);
 }
