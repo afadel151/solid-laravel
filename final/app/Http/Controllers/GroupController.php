@@ -2,7 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Group\CreateGroupRequest;
+use App\Http\Requests\Group\UpdateGroupRequest;
+use App\Http\Resources\Group\GroupResource;
+use App\Models\Group;
+use App\Services\GroupService;
+use Inertia\Inertia;
+
 class GroupController extends Controller
 {
-    //
+
+    private GroupService $groupService;
+    public function __construct(GroupService $groupService)
+    {
+        $this->groupService = $groupService;
+    }
+    public function index()
+    {
+        return Inertia::render('groups/Index', [
+            'groups' ,GroupResource::make($this->groupService->getAll())
+        ]);
+    }
+    public function show(Group $group)
+    {
+        return Inertia::render('groups/Show',[
+            'group' => GroupResource::make($group)
+        ]);
+    }
+    public function store(CreateGroupRequest $request)
+    {
+        $data = $request->validated();
+        $group = GroupResource::make($this->groupService->create($data));
+        return response()->json([
+            'message' => 'Group created successfully',
+            'group' => $group
+        ],201);
+    }
+    public function update(UpdateGroupRequest $request)
+    {
+        $data = $request->validated();
+        $group = GroupResource::make($this->groupService->update($data));
+        return response()->json([
+            'message' => 'Group updated successfully',
+            'group' => $group
+        ],200);
+    }
+    public function destroy(int $id)
+    {
+        $destroyed = $this->groupService->delete($id);
+        if ($destroyed) {
+            return response()->json([
+                'success' => true], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+            ], 404);
+        }
+    }
+
 }
