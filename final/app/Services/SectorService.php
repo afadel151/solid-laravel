@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Interfaces\SectorRepositoryInterface;
-use App\Interfaces\SectorServiceInterface;
 
-class SectorService implements SectorServiceInterface
+class SectorService 
 {
     protected $sectorrepository;
 
@@ -31,9 +30,9 @@ class SectorService implements SectorServiceInterface
         return $sector;
     }
 
-    public function update(array $data)
+    public function update(int $id,array $data)
     {
-        $sector = $this->sectorrepository->update($data);
+        $sector = $this->sectorrepository->update($id,$data);
 
         return $sector;
     }

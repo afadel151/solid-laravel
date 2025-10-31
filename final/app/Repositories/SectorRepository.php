@@ -22,9 +22,15 @@ class SectorRepository implements SectorRepositoryInterface
         return Sector::create($data);
     }
 
-    public function update(array $data)
+    public function update(int $id,array $data)
     {
-        return Sector::find($data['id'])->update($data);
+        $sector = Sector::find($id);
+        if($sector)
+        {
+            $sector->update($data);
+            return $sector;
+        }
+        return null;
     }
 
     public function delete(int $id): bool

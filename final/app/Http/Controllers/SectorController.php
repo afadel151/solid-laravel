@@ -47,12 +47,18 @@ class SectorController extends Controller
     {
         $id = $request->validated('id');
         $data = Arr::except($request->validated(), ['id']);
-        $sector = $this->sectorService->update($request->validated());
+        $sector = $this->sectorService->update($id, $data);
 
-        return response()->json([
-            'message' => 'Sector updated successfully',
-            'data' => SectorResource::make($sector),
-        ], 200);
+        if ($sector) {
+            return response()->json([
+                'message' => 'Sector updated successfully',
+                'data' => SectorResource::make($sector),
+            ], 200);
+        }else{
+            return response()->json([
+                    'message'=> 'Error updating',
+            ],404);
+        }
     }
 
     public function destory($id)
