@@ -22,7 +22,9 @@ class UpdateTimingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id'=>'integer|required|exists:timings,id',
+            'session_start'=> ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/'],
+            'session_finish'=> ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/'] 
         ];
     }
 }

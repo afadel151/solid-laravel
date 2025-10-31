@@ -22,7 +22,8 @@ class UpdateRoomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'room_name' => 'string|required|unique:rooms,room_name',
+            'teaching_capacity' => 'integer|required',
         ];
     }
 }

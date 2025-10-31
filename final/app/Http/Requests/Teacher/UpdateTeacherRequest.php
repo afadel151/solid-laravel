@@ -22,7 +22,10 @@ class UpdateTeacherRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "id"=> "integer|required",
+            "teacher_name" => "string|unique:teachers,teacher_name|required",
+            "teacher_grade" => "string|required",
+            "teacher_email" => "string|email|required",
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\GlobalWeek;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CreateGlobalWeekRequest extends FormRequest
 {
@@ -22,7 +23,9 @@ class CreateGlobalWeekRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'global_week_number'=>'integer|required',
+            'global_week_type'=> 'string|required',
+            'start_week_date'=>'date|required'
         ];
     }
 }

@@ -22,7 +22,10 @@ class CreateGroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'group_number'=>'integer|required',
+            'section_id'=>'integer|required',
+            'nb_students'=>'integer',
+            'default_room_id'=>'integer',
         ];
     }
 }

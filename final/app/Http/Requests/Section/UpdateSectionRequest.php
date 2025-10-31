@@ -22,7 +22,9 @@ class UpdateSectionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id' => 'exists:sections,id|integer|required',
+            'section_number' => 'integer|required',
+            'default_room_id' => 'exists:rooms,id|required|integer',
         ];
     }
 }

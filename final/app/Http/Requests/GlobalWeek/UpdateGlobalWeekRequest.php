@@ -22,7 +22,9 @@ class UpdateGlobalWeekRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id'=>'integer|required',
+            'global_week_type'=>'string',
+            'start_week_date'=>'date'
         ];
     }
 }

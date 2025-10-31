@@ -22,7 +22,9 @@ class CreateSectionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'section_number'=>'integer|required',
+            'sector_id'=>'exists:sectors,id|required|integer',
+            'default_room_id'=>'exists:rooms,id|required|integer'
         ];
     }
 }

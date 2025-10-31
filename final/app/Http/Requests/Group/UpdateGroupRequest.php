@@ -22,7 +22,10 @@ class UpdateGroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id'=>'integer|required',
+            'group_number'=>'integer|required',
+            'nb_students'=>'integer|required',
+            'default_room_id'=>'integer|required',
         ];
     }
 }

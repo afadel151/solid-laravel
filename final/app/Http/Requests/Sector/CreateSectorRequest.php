@@ -22,7 +22,8 @@ class CreateSectorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'sector_name'=> 'string|required',
+            'year_id'=> 'integer|exists:years,id|required',
         ];
     }
 }

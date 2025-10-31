@@ -22,7 +22,7 @@ class UpdateYearRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'year' => ['required', 'integer'],
         ];
     }
 }

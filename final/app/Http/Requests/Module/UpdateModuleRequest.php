@@ -22,7 +22,7 @@ class UpdateModuleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'module_name'=>'unique:App\Models\Module,module_name|string|required'
         ];
     }
 }

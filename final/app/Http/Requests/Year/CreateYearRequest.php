@@ -22,7 +22,7 @@ class CreateYearRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'year'=>['required','integer']
         ];
     }
 }

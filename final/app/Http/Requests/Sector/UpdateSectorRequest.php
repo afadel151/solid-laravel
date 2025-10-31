@@ -22,7 +22,9 @@ class UpdateSectorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "id"=> "integer|exists:sectors,id|required",
+            'sector_name'=>'string|required',
+            'year_id'=>'integer|exists:years,id|required',
         ];
     }
 }
