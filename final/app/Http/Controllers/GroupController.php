@@ -34,6 +34,8 @@ class GroupController extends Controller
         ]);
     }
 
+
+    //API requests
     public function store(CreateGroupRequest $request)
     {
         $data = $request->validated();

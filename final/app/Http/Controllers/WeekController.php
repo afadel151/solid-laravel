@@ -27,6 +27,17 @@ class WeekController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $week = $this->weekService->getById($id);
+
+        return Inertia::render('weeks/Show', [
+            'week' => new WeekResource($week),
+        ]);
+
+    }
+
+    // API requests
     public function store(CreateWeekRequest $request)
     {
 
@@ -38,15 +49,6 @@ class WeekController extends Controller
         ], 201);
     }
 
-    public function show($id)
-    {
-        $week = $this->weekService->getById($id);
-
-        return Inertia::render('weeks/Show', [
-            'week' => new WeekResource($week),
-        ]);
-
-    }
 
     public function update(UpdateWeekRequest $request)
     {

@@ -19,19 +19,29 @@ class ModuleController extends Controller
     {
         $this->moduleSvc = $module_service;
     }
-
-    public function get_all()
-    {
-
-        return response()->json(new ModuleCollection($this->moduleSvc->all()));
-    }
-
     public function index()
     {
         return Inertia::render('modules/Index', [
             'modules' => new ModuleCollection($this->moduleSvc->all()),
         ]);
     }
+
+    public function show(int $id)
+    {
+        return Inertia::render('modules/Show', [
+            'module' => new ModuleResource($this->moduleSvc->find($id)),
+        ]);
+    }
+
+
+
+    //API requests
+    public function get_all()
+    {
+
+        return response()->json(new ModuleCollection($this->moduleSvc->all()));
+    }
+
 
     public function store(StoreModuleRequest $request)
     {

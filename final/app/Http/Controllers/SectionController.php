@@ -34,6 +34,8 @@ class SectionController extends Controller
         ]);
     }
 
+
+    //API requests
     public function store(CreateSectionRequest $request)
     {
         $section = $this->sectionService->store($request->validated());

@@ -27,6 +27,7 @@ class TimingController extends Controller
         ]);
     }
 
+    // API requests
     public function update(UpdateTimingRequest $request)
     {
         $id = $request->validated('id');

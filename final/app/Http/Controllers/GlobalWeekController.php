@@ -18,7 +18,7 @@ class GlobalWeekController extends Controller
     {
         $this->globalWeekService = $globalWeekService;
     }
-
+    //Route requests
     public function index()
     {
         $globalWeeks = $this->globalWeekService->getAll();
@@ -26,14 +26,6 @@ class GlobalWeekController extends Controller
         return Inertia::render('global_weeks/Index', [
             'global_weeks' => new GlobalWeekCollection($globalWeeks),
         ]);
-
-    }
-
-    public function store(CreateGlobalWeekRequest $request)
-    {
-        $globalWeek = $this->globalWeekService->create($request->validated());
-
-        return new GlobalWeekResource($globalWeek);
 
     }
 
@@ -45,6 +37,28 @@ class GlobalWeekController extends Controller
             'global_week' => new GlobalWeekResource($globalWeek),
         ]);
     }
+
+
+
+    //API requests
+
+    public function get(int $id)
+    {
+        $globalWeek = $this->globalWeekService->find($id);
+        return response()->json([
+            'global_week'=>new GlobalWeekResource($globalWeek)
+        ],200);
+    }
+    public function store(CreateGlobalWeekRequest $request)
+    {
+        $globalWeek = $this->globalWeekService->create($request->validated());
+
+        return response()->json([
+            'global_week'=> new GlobalWeekResource($globalWeek)
+        ],200);
+
+    }
+
 
     public function update(UpdateGlobalWeekRequest $request)
     {

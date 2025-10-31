@@ -36,6 +36,8 @@ class RoomController extends Controller
         ]);
     }
 
+
+    //API requests
     public function store(CreateRoomRequest $request)
     {
         $room = $this->roomService->create($request->validated());

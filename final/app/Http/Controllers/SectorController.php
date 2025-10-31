@@ -34,6 +34,8 @@ class SectorController extends Controller
         ]);
     }
 
+
+    //API requests
     public function store(CreateSectorRequest $request)
     {
         $sector = $this->sectorService->create($request->validated());
