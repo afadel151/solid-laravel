@@ -4,7 +4,7 @@ namespace App\Http\Requests\Teacher;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddTeacher extends FormRequest
+class CreateTeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

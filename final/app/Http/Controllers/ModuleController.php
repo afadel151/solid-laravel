@@ -7,6 +7,7 @@ use App\Http\Requests\Module\UpdateModuleRequest;
 use App\Http\Resources\ModuleResource;
 use App\Models\Module;
 use App\Services\ModuleService;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
 class ModuleController extends Controller
@@ -44,7 +45,7 @@ class ModuleController extends Controller
     public function update(UpdateModuleRequest $request)
     {
         $id = $request->validated('id');
-        $data = $request->validated()->except('id');
+        $data = Arr::except($request->validated(), ['id']);
         $module = $this->moduleSvc->update($id, $data);
 
         return response()->json([

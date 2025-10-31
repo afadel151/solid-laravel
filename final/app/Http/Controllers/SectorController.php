@@ -7,6 +7,7 @@ use App\Http\Requests\Sector\UpdateSectorRequest;
 use App\Http\Resources\SectorResource;
 use App\Models\Sector;
 use App\Services\SectorService;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
 class SectorController extends Controller
@@ -44,6 +45,8 @@ class SectorController extends Controller
 
     public function update(UpdateSectorRequest $request)
     {
+        $id = $request->validated('id');
+        $data = Arr::except($request->validated(), ['id']);
         $sector = $this->sectorService->update($request->validated());
 
         return response()->json([

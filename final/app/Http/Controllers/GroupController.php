@@ -7,6 +7,7 @@ use App\Http\Requests\Group\UpdateGroupRequest;
 use App\Http\Resources\Group\GroupResource;
 use App\Models\Group;
 use App\Services\GroupService;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
 class GroupController extends Controller
@@ -40,7 +41,7 @@ class GroupController extends Controller
     }
     public function update(UpdateGroupRequest $request)
     {
-        $data = $request->validated()->without('id');
+        $data = Arr::except($request->validated(), ['id']);
         $id = $request->validated('id');
         $group = GroupResource::make($this->groupService->update($id,$data));
         return response()->json([
