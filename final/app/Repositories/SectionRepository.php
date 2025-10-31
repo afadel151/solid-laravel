@@ -22,13 +22,12 @@ class SectionRepository implements SectionRepositoryInterface
         return Section::create($data);
     }
 
-    public function update(array $data)
+    public function update(int $id,array $data)
     {
-        $section = Section::find($data['id']);
+        $section = Section::find($id);
         if ($section) {
             $section->update($data);
         }
-
         return $section;
     }
 

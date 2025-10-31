@@ -7,6 +7,7 @@ use App\Http\Requests\Section\UpdateSectionRequest;
 use App\Http\Resources\SectionResource;
 use App\Models\Section;
 use App\Services\SectionService;
+use Illuminate\Support\Arr;
 use Inertia\Inertia;
 
 class SectionController extends Controller
@@ -49,7 +50,9 @@ class SectionController extends Controller
 
     public function update(UpdateSectionRequest $request)
     {
-        $section = $this->sectionService->update($request->validated());
+        $id = $request->validated('id');
+        $data = Arr::except($request->validated(), ['id']);
+        $section = $this->sectionService->update($id, $data);
         if ($section) {
             return response()->json([
                 'success' => true,

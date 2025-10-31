@@ -9,9 +9,10 @@ interface YearRepositoryInterface
 {
     public function find($id): Year;
 
-    public function create(array $data): Year;
+    public function create(array $data);
 
-    public function delete(int $id): bool;
+    public function delete(int $id);
 
-    public function all(): Collection;
+    public function all();
+    public function update(int $id, array $data);
 }

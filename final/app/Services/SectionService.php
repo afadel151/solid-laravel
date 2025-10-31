@@ -30,9 +30,9 @@ class SectionService
         return $section;
     }
 
-    public function update(array $data)
+    public function update(int $id,array $data)
     {
-        return $this->sectionRepository->update($data);
+        return $this->sectionRepository->update($id,$data);
     }
 
     public function delete($id)

@@ -13,27 +13,27 @@ class TimingService
         $this->timingRepository = $timingRepository;
     }
 
-    public function getAllTimings()
+    public function getAll()
     {
         return $this->timingRepository->all();
     }
 
-    public function getTimingById($id)
+    public function getById($id)
     {
         return $this->timingRepository->find($id);
     }
 
-    public function updateTiming(array $data)
+    public function update(int $id,array $data)
     {
-        return $this->timingRepository->update($data);
+        return $this->timingRepository->update($id,$data);
     }
 
-    public function createTiming(array $data)
+    public function create(array $data)
     {
         return $this->timingRepository->create($data);
     }
 
-    public function deleteTiming($id)
+    public function delete($id)
     {
         return $this->timingRepository->delete($id);
     }

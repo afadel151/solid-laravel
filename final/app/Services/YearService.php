@@ -12,23 +12,27 @@ class YearService
 
     public function __construct(protected YearRepositoryInterface $repository) {}
 
-    public function getYear(int $id): Year
+    public function find(int $id): Year
     {
         return $this->repository->find($id);
     }
 
-    public function getAllYears(): Collection
+    public function getAll(): Collection
     {
         return $this->repository->all();
     }
 
-    public function deleteYear(int $id): int
+    public function delete(int $id)
     {
         return $this->repository->delete($id);
     }
 
-    public function createYear(array $data): Year
+    public function create(array $data): Year
     {
         return $this->repository->create($data);
+    }
+    public function update(int $id, array $data)
+    {
+        return $this->repository->update($id, $data);
     }
 }
