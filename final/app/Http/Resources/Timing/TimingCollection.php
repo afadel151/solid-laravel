@@ -15,6 +15,11 @@ class TimingCollection extends ResourceCollection
     public $collects = TimingResource::class;
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            "data" => $this->collection,
+            "meta" => [
+                "total" => $this->collection->count(),
+            ],
+        ];
     }
 }

@@ -14,6 +14,11 @@ class SectionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            "id"=> $this->id,
+            "section_number"=> $this->section_number,
+            "sector_id"=> $this->sector_id,
+            "default_room_id"=> $this->default_room_id,
+        ];
     }
 }

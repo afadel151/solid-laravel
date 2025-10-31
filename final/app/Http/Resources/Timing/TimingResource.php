@@ -14,6 +14,10 @@ class TimingResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            "id"=> $this->id,
+            "session_start"=> $this->session_start,
+            "session_finish"=> $this->session_finish,
+        ];
     }
 }
