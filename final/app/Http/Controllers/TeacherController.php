@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Teacher\CreateTeacherRequest;
 use App\Http\Requests\Teacher\UpdateTeacherRequest;
 use App\Http\Resources\Teacher\TeacherResource;
+use App\Http\Resources\Teacher\TeacherCollection;
 use App\Services\TeacherService;
 use Illuminate\Support\Arr;
 use Inertia\Inertia;
@@ -18,13 +19,13 @@ class TeacherController extends Controller
         $this->teacherService = $teacherService;
     }
 
+    // Route functions
     public function index()
     {
-        return Inertia::render('teachers/Index', [
-            'teachers' => TeacherResource::make($this->teacherService->getAll()),
+        return Inertia::render( 'teachers/Index', [
+            'teachers' => new TeacherCollection($this->teacherService->getAll()),
         ]);
     }
-
     public function show($id)
     {
         $teacher = $this->teacherService->find($id);
@@ -33,19 +34,19 @@ class TeacherController extends Controller
                 'message' => 'Teacher not found',
             ], 404);
         }
-
         return Inertia::render('teachers/Show', [
-            'teacher' => TeacherResource::make($teacher),
+            'teacher' => new TeacherResource($teacher),
         ]);
     }
 
+    // API functions
     public function store(CreateTeacherRequest $request)
     {
         $teacher = $this->teacherService->create($request->validated());
 
         return response()->json([
             'message' => 'Teacher created successfully',
-            'teacher' => TeacherResource::make($teacher),
+            'teacher' => new TeacherResource($teacher),
         ], 201);
     }
 
@@ -57,7 +58,7 @@ class TeacherController extends Controller
 
         return response()->json([
             'message' => 'Teacher updated successfully',
-            'teacher' => TeacherResource::make($updatedTeacher),
+            'teacher' => new TeacherResource($updatedTeacher),
         ], 200);
     }
 
@@ -73,4 +74,5 @@ class TeacherController extends Controller
             ], 400);
         }
     }
+    
 }

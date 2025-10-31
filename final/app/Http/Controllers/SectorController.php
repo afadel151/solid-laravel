@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Sector\CreateSectorRequest;
 use App\Http\Requests\Sector\UpdateSectorRequest;
-use App\Http\Resources\SectorResource;
+use App\Http\Resources\Sector\SectorCollection;
+use App\Http\Resources\Sector\SectorResource;
 use App\Models\Sector;
 use App\Services\SectorService;
 use Illuminate\Support\Arr;
@@ -22,14 +23,14 @@ class SectorController extends Controller
     public function index()
     {
         return Inertia::render('sectors/Index', [
-            'sectors' => SectorResource::make($this->sectorService->getAll()),
+            'sectors' => new SectorCollection($this->sectorService->getAll()),
         ]);
     }
 
     public function show(Sector $sector)
     {
         return Inertia::render('sectors/Show', [
-            'sector' => SectorResource::make($sector),
+            'sector' => new SectorResource($sector),
         ]);
     }
 
@@ -39,7 +40,7 @@ class SectorController extends Controller
 
         return response()->json([
             'message' => 'Sector created successfully',
-            'data' => SectorResource::make($sector),
+            'data' => new SectorResource($sector),
         ], 201);
     }
 
@@ -52,7 +53,7 @@ class SectorController extends Controller
         if ($sector) {
             return response()->json([
                 'message' => 'Sector updated successfully',
-                'data' => SectorResource::make($sector),
+                'data' => new SectorResource($sector),
             ], 200);
         }else{
             return response()->json([

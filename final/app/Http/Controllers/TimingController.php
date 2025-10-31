@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Timing\CreateTimingrequest;
 use App\Http\Requests\Timing\UpdateTimingRequest;
+use App\Http\Resources\Timing\TimingCollection;
 use App\Http\Resources\Timing\TimingResource;
 use App\Http\Resources\Timing\TimingsResource;
 use App\Models\Timing;
@@ -24,19 +25,20 @@ class TimingController extends Controller
     public function index()
     {
         return Inertia::render('timings/Index', [
-            'timings' => TimingsResource::make($this->timingService->getAll()),
+            'timings' => new TimingCollection($this->timingService->getAll()),
         ]);
     }
 
     public function update(UpdateTimingRequest $request)
     {
-         $id = $request->validated('id');
+        $id = $request->validated('id');
         $data = Arr::except($request->validated(), ['id']);
 
         $updated = $this->timingService->update($id,$data);
         if ($updated) {
             return response()->json([
                 'message'=> 'Updated successfullt',
+                'timing'=> new TimingResource($updated),
             ],200);
         }else
         {
@@ -52,7 +54,7 @@ class TimingController extends Controller
 
         return response()->json([
             'message' => 'Year created successfully',
-            'data' => TimingResource::make($timing),
+            'data' => new TimingResource($timing),
         ], 201);
     }
 

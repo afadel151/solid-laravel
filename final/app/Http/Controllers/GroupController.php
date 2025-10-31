@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Group\CreateGroupRequest;
 use App\Http\Requests\Group\UpdateGroupRequest;
+use App\Http\Resources\Group\GroupCollection;
 use App\Http\Resources\Group\GroupResource;
 use App\Models\Group;
 use App\Services\GroupService;
@@ -22,21 +23,21 @@ class GroupController extends Controller
     public function index()
     {
         return Inertia::render('groups/Index', [
-            'groups', GroupResource::make($this->groupService->getAll()),
+            'groups', new GroupCollection($this->groupService->getAll()),
         ]);
     }
 
     public function show(Group $group)
     {
         return Inertia::render('groups/Show', [
-            'group' => GroupResource::make($group),
+            'group' => new GroupResource($group),
         ]);
     }
 
     public function store(CreateGroupRequest $request)
     {
         $data = $request->validated();
-        $group = GroupResource::make($this->groupService->create($data));
+        $group = new GroupResource($this->groupService->create($data));
 
         return response()->json([
             'message' => 'Group created successfully',
@@ -48,7 +49,7 @@ class GroupController extends Controller
     {
         $data = Arr::except($request->validated(), ['id']);
         $id = $request->validated('id');
-        $group = GroupResource::make($this->groupService->update($id, $data));
+        $group = new GroupResource($this->groupService->update($id, $data));
 
         return response()->json([
             'message' => 'Group updated successfully',

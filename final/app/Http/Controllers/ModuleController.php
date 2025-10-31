@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Module\StoreModuleRequest;
 use App\Http\Requests\Module\UpdateModuleRequest;
-use App\Http\Resources\ModuleResource;
+use App\Http\Resources\Module\ModuleCollection;
+use App\Http\Resources\Module\ModuleResource;
 use App\Models\Module;
 use App\Services\ModuleService;
 use Illuminate\Support\Arr;
@@ -22,13 +23,13 @@ class ModuleController extends Controller
     public function get_all()
     {
 
-        return response()->json($this->moduleSvc->all());
+        return response()->json(new ModuleCollection($this->moduleSvc->all()));
     }
 
     public function index()
     {
         return Inertia::render('modules/Index', [
-            'modules' => $this->moduleSvc->all(),
+            'modules' => new ModuleCollection($this->moduleSvc->all()),
         ]);
     }
 
@@ -38,7 +39,7 @@ class ModuleController extends Controller
 
         return response()->json([
             'message' => 'Module created successfully',
-            'module' => ModuleResource::make($module),
+            'module' => new ModuleResource($module),
         ], 201);
     }
 
@@ -50,7 +51,7 @@ class ModuleController extends Controller
 
         return response()->json([
             'message' => 'Module updated successfully',
-            'module' => ModuleResource::make($module),
+            'module' => new ModuleResource($module),
         ], 200);
     }
 

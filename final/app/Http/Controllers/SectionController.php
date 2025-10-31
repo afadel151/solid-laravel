@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Section\CreateSectionRequest;
 use App\Http\Requests\Section\UpdateSectionRequest;
-use App\Http\Resources\SectionResource;
+use App\Http\Resources\Section\SectionCollection;
+use App\Http\Resources\Section\SectionResource;
 use App\Models\Section;
 use App\Services\SectionService;
 use Illuminate\Support\Arr;
@@ -22,14 +23,14 @@ class SectionController extends Controller
     public function index()
     {
         return Inertia::render('sections/Index', [
-            'sections' => SectionResource::make($this->sectionService->getAll()),
+            'sections' => new SectionCollection($this->sectionService->getAll()),
         ]);
     }
 
     public function show(Section $section)
     {
         return Inertia::render('sections/Show', [
-            'section' => SectionResource::make($this->sectionService->getById($section->id)),
+            'section' => new SectionResource($this->sectionService->getById($section->id)),
         ]);
     }
 
@@ -39,7 +40,7 @@ class SectionController extends Controller
         if ($section) {
             return response()->json([
                 'success' => true,
-                'data' => SectionResource::make($section),
+                'data' => new SectionResource($section),
             ], 200);
         } else {
             return response()->json([
@@ -56,7 +57,7 @@ class SectionController extends Controller
         if ($section) {
             return response()->json([
                 'success' => true,
-                'data' => SectionResource::make($section),
+                'data' => new SectionResource($section),
             ], 200);
         } else {
             return response()->json([
