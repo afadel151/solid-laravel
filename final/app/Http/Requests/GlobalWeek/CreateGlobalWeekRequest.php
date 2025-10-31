@@ -4,7 +4,7 @@ namespace App\Http\Requests\GlobalWeek;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddGlobalWeek extends FormRequest
+class CreateGlobalWeekRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('global_weeks', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('global_week_number');
+            $table->string('global_week_type');
             $table->date('start_week_date');
             $table->timestamps();
         });
