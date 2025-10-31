@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Teacher\CreateTeacherRequest;
 use App\Http\Requests\Teacher\UpdateTeacherRequest;
-use App\Http\Resources\Teacher\TeacherResource;
 use App\Http\Resources\Teacher\TeacherCollection;
+use App\Http\Resources\Teacher\TeacherResource;
 use App\Services\TeacherService;
 use Illuminate\Support\Arr;
 use Inertia\Inertia;
@@ -22,10 +22,11 @@ class TeacherController extends Controller
     // Route functions
     public function index()
     {
-        return Inertia::render( 'teachers/Index', [
+        return Inertia::render('teachers/Index', [
             'teachers' => new TeacherCollection($this->teacherService->getAll()),
         ]);
     }
+
     public function show($id)
     {
         $teacher = $this->teacherService->find($id);
@@ -34,6 +35,7 @@ class TeacherController extends Controller
                 'message' => 'Teacher not found',
             ], 404);
         }
+
         return Inertia::render('teachers/Show', [
             'teacher' => new TeacherResource($teacher),
         ]);
@@ -74,5 +76,4 @@ class TeacherController extends Controller
             ], 400);
         }
     }
-    
 }

@@ -11,7 +11,7 @@ class AddSession extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**

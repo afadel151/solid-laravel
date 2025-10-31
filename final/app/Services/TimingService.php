@@ -23,9 +23,9 @@ class TimingService
         return $this->timingRepository->find($id);
     }
 
-    public function update(int $id,array $data)
+    public function update(int $id, array $data)
     {
-        return $this->timingRepository->update($id,$data);
+        return $this->timingRepository->update($id, $data);
     }
 
     public function create(array $data)

@@ -15,9 +15,9 @@ class SectorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id"=> $this->id,
-            "sector_name"=> $this->sector_name,
-            "year_id"=> $this->year_id,            
+            'id' => $this->id,
+            'sector_name' => $this->sector_name,
+            'year_id' => $this->year_id,
         ];
     }
 }

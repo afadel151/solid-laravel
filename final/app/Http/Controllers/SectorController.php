@@ -55,10 +55,10 @@ class SectorController extends Controller
                 'message' => 'Sector updated successfully',
                 'data' => new SectorResource($sector),
             ], 200);
-        }else{
+        } else {
             return response()->json([
-                    'message'=> 'Error updating',
-            ],404);
+                'message' => 'Error updating',
+            ], 404);
         }
     }
 

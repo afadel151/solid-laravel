@@ -15,9 +15,9 @@ class TimingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id"=> $this->id,
-            "session_start"=> $this->session_start,
-            "session_finish"=> $this->session_finish,
+            'id' => $this->id,
+            'session_start' => $this->session_start,
+            'session_finish' => $this->session_finish,
         ];
     }
 }

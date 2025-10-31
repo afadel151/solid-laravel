@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\GlobalWeek;
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
+
 class GlobalWeekSeeder extends Seeder
 {
     /**
@@ -16,7 +17,7 @@ class GlobalWeekSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             GlobalWeek::create([
                 'global_week_number' => $i,
-                'global_week_type'=> $faker->randomElement(['Type A', 'Type B', 'Type C']),
+                'global_week_type' => $faker->randomElement(['Type A', 'Type B', 'Type C']),
                 'start_week_date' => now()->startOfYear()->addWeeks($i),
             ]);
         }

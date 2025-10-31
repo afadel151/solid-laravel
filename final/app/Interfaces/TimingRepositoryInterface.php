@@ -6,7 +6,7 @@ interface TimingRepositoryInterface
 {
     public function all();
 
-    public function update(int $id,array $data);
+    public function update(int $id, array $data);
 
     public function create(array $data);
 

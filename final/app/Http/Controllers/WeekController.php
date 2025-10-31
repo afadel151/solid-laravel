@@ -12,24 +12,29 @@ use Inertia\Inertia;
 class WeekController extends Controller
 {
     protected $weekService;
+
     public function __construct(WeekService $weekService)
     {
         $this->weekService = $weekService;
     }
+
     public function index()
     {
         $weeks = $this->weekService->getAll();
+
         return Inertia::render('weeks/Index', [
             'weeks' => new WeekResource($weeks),
         ]);
     }
+
     public function store(CreateWeekRequest $request)
     {
-        
+
         $week = $this->weekService->create($request->validated());
+
         return response()->json([
             'message' => 'Week created successfully.',
-            'data' => new WeekResource($week)
+            'data' => new WeekResource($week),
         ], 201);
     }
 
@@ -42,6 +47,7 @@ class WeekController extends Controller
         ]);
 
     }
+
     public function update(UpdateWeekRequest $request)
     {
         $id = $request->validated('id');
@@ -50,18 +56,21 @@ class WeekController extends Controller
         if ($newWeek) {
             return response()->json([
                 'message' => 'Week updated successfully.',
-                'data' => new WeekResource($newWeek)
+                'data' => new WeekResource($newWeek),
             ], 200);
         }
+
         return response()->json(['message' => 'Week not found.'], 404);
 
     }
+
     public function destroy($id)
     {
         $destroyed = $this->weekService->delete($id);
         if ($destroyed) {
             return response()->json(['message' => 'Week deleted successfully.'], 200);
         }
-        return response()->json(['message'=> 'Week not deleted'],404);
+
+        return response()->json(['message' => 'Week not deleted'], 404);
     }
 }

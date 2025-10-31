@@ -13,12 +13,13 @@ class GroupCollection extends ResourceCollection
      * @return array<int|string, mixed>
      */
     public $collects = GroupResource::class;
+
     public function toArray(Request $request): array
     {
         return [
-            "data" => $this->collection,
-            "meta" => [
-                "total" => $this->collection->count(),
+            'data' => $this->collection,
+            'meta' => [
+                'total' => $this->collection->count(),
             ],
         ];
     }

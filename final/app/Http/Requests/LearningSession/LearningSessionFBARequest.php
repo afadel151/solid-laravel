@@ -22,8 +22,8 @@ class LearningSessionFBARequest extends FormRequest
     public function rules(): array
     {
         return [
-            "attribute"=>'string|required',
-            "value" => "string|required"
+            'attribute' => 'string|required',
+            'value' => 'string|required',
         ];
     }
 }

@@ -6,8 +6,6 @@ use App\Http\Requests\Timing\CreateTimingrequest;
 use App\Http\Requests\Timing\UpdateTimingRequest;
 use App\Http\Resources\Timing\TimingCollection;
 use App\Http\Resources\Timing\TimingResource;
-use App\Http\Resources\Timing\TimingsResource;
-use App\Models\Timing;
 use App\Services\TimingService;
 use Illuminate\Support\Arr;
 use Inertia\Inertia;
@@ -34,17 +32,16 @@ class TimingController extends Controller
         $id = $request->validated('id');
         $data = Arr::except($request->validated(), ['id']);
 
-        $updated = $this->timingService->update($id,$data);
+        $updated = $this->timingService->update($id, $data);
         if ($updated) {
             return response()->json([
-                'message'=> 'Updated successfullt',
-                'timing'=> new TimingResource($updated),
-            ],200);
-        }else
-        {
+                'message' => 'Updated successfullt',
+                'timing' => new TimingResource($updated),
+            ], 200);
+        } else {
             return response()->json([
-                'messae'=> 'failed to update timing'
-            ],404);
+                'messae' => 'failed to update timing',
+            ], 404);
         }
     }
 

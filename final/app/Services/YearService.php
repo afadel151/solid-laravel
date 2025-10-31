@@ -31,6 +31,7 @@ class YearService
     {
         return $this->repository->create($data);
     }
+
     public function update(int $id, array $data)
     {
         return $this->repository->update($id, $data);

@@ -89,6 +89,7 @@ class LearningSessionController extends Controller
                 'message' => 'Session Deleted successfully',
             ], 200);
         }
+
         return response()->json([
             'message' => 'Error deleting session',
         ], 404);

@@ -15,10 +15,10 @@ class TeacherResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id"=> $this->id,
-            "teacher_name"=> $this->teacher_name,
-            "teacher_grade"=> $this->teacher_grade,
-            "teacher_email"=> $this->teacher_email,
+            'id' => $this->id,
+            'teacher_name' => $this->teacher_name,
+            'teacher_grade' => $this->teacher_grade,
+            'teacher_email' => $this->teacher_email,
         ];
     }
 }

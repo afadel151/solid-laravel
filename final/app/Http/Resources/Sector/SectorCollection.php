@@ -12,13 +12,14 @@ class SectorCollection extends ResourceCollection
      *
      * @return array<int|string, mixed>
      */
-    public $collects = SectorResource::class;   
+    public $collects = SectorResource::class;
+
     public function toArray(Request $request): array
     {
         return [
-            "data" => $this->collection,
-            "meta" => [
-                "total" => $this->collection->count(),
+            'data' => $this->collection,
+            'meta' => [
+                'total' => $this->collection->count(),
             ],
         ];
     }

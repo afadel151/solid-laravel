@@ -17,14 +17,15 @@ class TimingRepository implements TimingRepositoryInterface
         return Timing::find($id);
     }
 
-    public function update(int $id,array $data)
+    public function update(int $id, array $data)
     {
         $timing = Timing::find($id);
-        if($timing)
-        {
+        if ($timing) {
             $timing->update($data);
+
             return $timing;
         }
+
         return null;
     }
 
@@ -36,11 +37,11 @@ class TimingRepository implements TimingRepositoryInterface
     public function delete($id)
     {
         $timing = Timing::find($id);
-        if($timing)
-        {
-            
+        if ($timing) {
+
             return $timing->delete();
         }
+
         return false;
     }
 }

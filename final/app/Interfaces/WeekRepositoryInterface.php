@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface WeekRepositoryInterface 
+interface WeekRepositoryInterface
 {
     public function all();
 

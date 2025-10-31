@@ -26,7 +26,7 @@ class GlobalWeekController extends Controller
         return Inertia::render('global_weeks/Index', [
             'global_weeks' => new GlobalWeekCollection($globalWeeks),
         ]);
-        
+
     }
 
     public function store(CreateGlobalWeekRequest $request)
@@ -54,7 +54,7 @@ class GlobalWeekController extends Controller
         if ($newGlobalWeek) {
             return response()->json([
                 'message' => 'Global week updated successfully.',
-                'data' => new GlobalWeekResource($newGlobalWeek)
+                'data' => new GlobalWeekResource($newGlobalWeek),
             ], 200);
         }
 

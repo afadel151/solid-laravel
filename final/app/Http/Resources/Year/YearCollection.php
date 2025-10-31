@@ -13,12 +13,13 @@ class YearCollection extends ResourceCollection
      * @return array<int|string, mixed>
      */
     public $collects = YearResource::class;
+
     public function toArray(Request $request): array
     {
         return [
-            "data" => $this->collection,
-            "meta" => [
-                "total" => $this->collection->count(),
+            'data' => $this->collection,
+            'meta' => [
+                'total' => $this->collection->count(),
             ],
         ];
     }

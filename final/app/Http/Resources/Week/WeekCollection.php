@@ -13,6 +13,7 @@ class WeekCollection extends ResourceCollection
      * @return array<int|string, mixed>
      */
     public $collects = WeekResource::class;
+
     public function toArray(Request $request): array
     {
         return [

@@ -5,36 +5,42 @@ namespace App\Repositories;
 use App\Interfaces\GlobalWeekRepositoryInterface;
 use App\Models\GlobalWeek;
 
-
-class GlobalWeekRepository implements GlobalWeekRepositoryInterface {
-
+class GlobalWeekRepository implements GlobalWeekRepositoryInterface
+{
     public function all()
     {
         return GlobalWeek::all();
     }
+
     public function find($id)
     {
         return GlobalWeek::find($id);
     }
+
     public function create(array $data)
     {
         return GlobalWeek::create($data);
     }
-    public function update(int $id,array $data)
+
+    public function update(int $id, array $data)
     {
         $globalWeek = GlobalWeek::find($id);
-        if($globalWeek){
+        if ($globalWeek) {
             $globalWeek->update($data);
+
             return $globalWeek;
         }
+
         return null;
     }
+
     public function delete(int $id)
     {
         $globalWeek = GlobalWeek::find($id);
-        if($globalWeek){
+        if ($globalWeek) {
             return $globalWeek->delete();
         }
+
         return false;
     }
 }

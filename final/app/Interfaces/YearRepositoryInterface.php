@@ -3,7 +3,6 @@
 namespace App\Interfaces;
 
 use App\Models\Year;
-use Illuminate\Database\Eloquent\Collection;
 
 interface YearRepositoryInterface
 {
@@ -14,5 +13,6 @@ interface YearRepositoryInterface
     public function delete(int $id);
 
     public function all();
+
     public function update(int $id, array $data);
 }
