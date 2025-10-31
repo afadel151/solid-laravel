@@ -40,8 +40,9 @@ class GroupController extends Controller
     }
     public function update(UpdateGroupRequest $request)
     {
-        $data = $request->validated();
-        $group = GroupResource::make($this->groupService->update($data));
+        $data = $request->validated()->without('id');
+        $id = $request->validated('id');
+        $group = GroupResource::make($this->groupService->update($id,$data));
         return response()->json([
             'message' => 'Group updated successfully',
             'group' => $group

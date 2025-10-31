@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Module\StoreModuleRequest;
+use App\Http\Requests\Module\UpdateModuleRequest;
+use App\Http\Resources\ModuleResource;
+use App\Models\Module;
 use App\Services\ModuleService;
 use Inertia\Inertia;
 
@@ -25,5 +29,40 @@ class ModuleController extends Controller
         return Inertia::render('modules/Index', [
             'modules' => $this->moduleSvc->all(),
         ]);
+    }
+
+    public function store(StoreModuleRequest $request)
+    {
+        $module = $this->moduleSvc->create($request->validated());
+
+        return response()->json([
+            'message' => 'Module created successfully',
+            'module' => ModuleResource::make($module),
+        ], 201);
+    }
+
+    public function update(UpdateModuleRequest $request)
+    {
+        $id = $request->validated('id');
+        $data = $request->validated()->except('id');
+        $module = $this->moduleSvc->update($id, $data);
+
+        return response()->json([
+            'message' => 'Module updated successfully',
+            'module' => ModuleResource::make($module),
+        ], 200);
+    }
+
+    public function destroy(Module $module)
+    {
+        $destroyed = $this->moduleSvc->delete($module->id);
+        if (! $destroyed) {
+            return response()->json([
+                'message' => 'Module not found',
+            ], 404);
+        }
+        return response()->json([
+            'message' => 'Module deleted successfully',
+        ], 200);
     }
 }

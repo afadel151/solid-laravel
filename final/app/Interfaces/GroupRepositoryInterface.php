@@ -10,6 +10,6 @@ interface GroupRepositoryInterface {
     public function findById(int $id):Group|null;
 
     public function create(array $data): Group;
-    public function update( array $data): Group;
+    public function update(int $id, array $data): Group;
     public function delete(int $id): bool;
 }

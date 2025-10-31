@@ -34,7 +34,6 @@ class ModuleRepository implements ModuleRepositoryInterface
         if ($module) {
             $module->update($data);
         }
-
         return $module;
     }
 

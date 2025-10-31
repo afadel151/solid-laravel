@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Interfaces\GroupRepositoryInterface;
-use App\Interfaces\GroupServiceInterface;
 use App\Models\Group;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -27,9 +26,9 @@ class GroupService  {
     {
         return $this->groupRepository->create($data);
     }
-    public function update(array $data): Group
+    public function update(int $id,array $data): Group
     {
-        return $this->groupRepository->update($data);
+        return $this->groupRepository->update($id,$data);
     }
     public function delete(int $id): bool
     {
