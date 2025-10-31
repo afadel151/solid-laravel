@@ -10,4 +10,8 @@ class Timing extends Model
         'session_start',
         'session_finish',
     ];
+    public function sessions()
+    {
+        return $this->hasMany(LearningSession::class);
+    }
 }

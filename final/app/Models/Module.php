@@ -17,6 +17,12 @@ class Module extends Model
 
     public function teachers()
     {
-        return $this->belongsToMany(Teacher::class, 'teachers_modules', 'module_id', 'teacher_id');
+        return $this->belongsToMany(Teacher::class, 'teachers_modules', 'module_id', 'teacher_id')
+                    ->withPivot('lecture','lab','dw')
+                    ->withTimestamps();
+    }
+    public function sessions()
+    {
+        return $this->hasMany(LearningSession::class);
     }
 }

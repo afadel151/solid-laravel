@@ -25,7 +25,7 @@ class Week extends Model
         return $this->belongsTo(Year::class);
     }
 
-    public function learning_sessions(): HasMany
+    public function sessions(): HasMany
     {
         return $this->hasMany(LearningSession::class);
     }

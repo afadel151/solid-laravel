@@ -16,4 +16,9 @@ class GlobalWeek extends Model
     {
         return $this->hasMany(Week::class);
     }
+
+    public function sessions()
+    {
+        return $this->hasManyThrough(LearningSession::class, Week::class);
+    }
 }

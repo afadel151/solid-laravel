@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Group extends Model
 {
@@ -20,7 +21,15 @@ class Group extends Model
 
     public function getModulesAttribute()
     {
-        // Access the group's section, then its sector, then its modules
         return $this->section?->sector?->modules ?? collect();
+    }
+    public function default_room()
+    {
+        return $this->belongsTo(Room::class,'default_room_id');
+    }
+
+    public function sessions():MorphMany
+    {
+        return $this->morphMany(LearningSession::class,'sessionable');
     }
 }

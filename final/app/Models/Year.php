@@ -17,7 +17,10 @@ class Year extends Model
     {
         return $this->hasMany(Sector::class);
     }
-
+    public function sections()
+    {
+        return $this->hasManyThrough(Section::class, Sector::class,'year_id','sector_id','id','id');
+    } 
     public function weeks(): HasMany
     {
         return $this->hasMany(Week::class);
