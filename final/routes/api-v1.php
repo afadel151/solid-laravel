@@ -15,7 +15,7 @@ use App\Http\Controllers\WeekController;
 use App\Http\Controllers\YearController;
 use App\Models\GlobalWeek;
 
-Route::prefix('/api')->group(function (Request $request) {
+Route::prefix('/')->group(function () {
     Route::prefix('global_weeks')->group(function () 
     {
         Route::post('/create',[GlobalWeekController::class,'store']);

@@ -14,8 +14,17 @@ import {
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
+import { CalendarClock, Earth, Glasses, GraduationCap, LayoutGrid, Milestone, Package, PersonStanding, School, Settings, Users } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
+import global_weeks from '@/routes/global_weeks';
+import weeks from '@/routes/weeks';
+import years from '@/routes/years';
+import sectors from '@/routes/sectors';
+import sections from '@/routes/sections';
+import groups from '@/routes/groups';
+import rooms from '@/routes/rooms';
+import modules from '@/routes/modules';
+import teachers from '@/routes/teachers';
 
 const mainNavItems: NavItem[] = [
     {
@@ -23,19 +32,57 @@ const mainNavItems: NavItem[] = [
         href: dashboard(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Global weeks',
+        href:global_weeks.index(),
+        icon: Earth
+    },{
+        title: 'Weeks',
+        href: weeks.index(),
+        icon: CalendarClock
+    },
+    {
+        title: 'Years',
+        href: years.index(),
+        icon: Users
+    },
+    {
+        title: 'Sectors',
+        href: sectors.index(),
+        icon: Milestone
+    },
+    {
+        title: 'Sections',
+        href: sections.index(),
+        icon: Glasses
+    },
+    {
+        title: 'Groups',
+        href: groups.index(),
+        icon: PersonStanding
+    },
+    {
+        title: 'Rooms',
+        href: rooms.index(),
+        icon: School
+    },
+    {
+        title: 'Modules',
+        href: modules.index(),
+        icon: Package
+    },{
+        title: 'Teachers',
+        href: teachers.index(),
+        icon: GraduationCap
+    }
 ];
 
 const footerNavItems: NavItem[] = [
-    {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#vue',
-        icon: BookOpen,
-    },
+    // {
+    //     title: 'Settings',
+    //     href: 'https://github.com/laravel/vue-starter-kit',
+    //     icon: Settings,
+    // },
 ];
 </script>
 

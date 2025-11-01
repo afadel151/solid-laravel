@@ -14,5 +14,4 @@ interface YearRepositoryInterface
 
     public function all();
 
-    public function update(int $id, array $data);
 }

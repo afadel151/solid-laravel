@@ -5,11 +5,7 @@ namespace App\Http\Requests\Week;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-enum Semesters : int
-{
-    case FIRST = 1;
-    case SECOND = 2;
-}
+
 class CreateWeekRequest extends FormRequest
 {
     /**

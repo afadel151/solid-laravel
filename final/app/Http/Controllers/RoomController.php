@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Room\CreateRoomRequest;
+use App\Http\Resources\Room\RoomCollection;
 use App\Http\Resources\Room\RoomResource;
 use App\Services\RoomService;
 use Illuminate\Support\Arr;
@@ -22,7 +23,7 @@ class RoomController extends Controller
         $rooms = $this->roomService->getAll();
 
         return Inertia::render('rooms/Index', [
-            'rooms' => RoomResource::make($rooms),
+            'rooms' => new RoomCollection($rooms),
         ]);
     }
 

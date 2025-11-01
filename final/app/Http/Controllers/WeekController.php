@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Week\CreateWeekRequest;
 use App\Http\Requests\Week\UpdateWeekRequest;
+use App\Http\Resources\Week\WeekCollection;
 use App\Http\Resources\Week\WeekResource;
 use App\Services\WeekService;
 use Illuminate\Support\Arr;
@@ -23,7 +24,7 @@ class WeekController extends Controller
         $weeks = $this->weekService->getAll();
 
         return Inertia::render('weeks/Index', [
-            'weeks' => new WeekResource($weeks),
+            'weeks' => new WeekCollection($weeks),
         ]);
     }
 

@@ -1,12 +1,21 @@
-<script setup>
+<script setup lang="ts">
+import { type BreadcrumbItem } from '@/types';
+import { Head } from '@inertiajs/vue3';
+import AppLayout from '@/layouts/AppLayout.vue';
+import modules from '@/routes/modules';
 
-const props = defineProps({
-    modules: Array
-});
+const breadcrumbs: BreadcrumbItem[] = [
+    {
+        title: 'Modules',
+        href: modules.index.url(),
+    },
+];
+
 </script>
 
-
 <template>
-    all modules : {{ props.modules }}
+    <Head title="Modules" />
+    <AppLayout :breadcrumbs="breadcrumbs">
 
+    </AppLayout>
 </template>

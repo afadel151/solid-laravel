@@ -7,18 +7,22 @@ namespace App\Providers;
 use App\Interfaces\GlobalWeekRepositoryInterface;
 use App\Interfaces\GroupRepositoryInterface;
 use App\Interfaces\ModuleRepositoryInterface;
+use App\Interfaces\RoomRepositoryInterface;
 use App\Interfaces\SectionRepositoryInterface;
 use App\Interfaces\SectorRepositoryInterface;
 use App\Interfaces\SessionRepositoryInterface;
+use App\Interfaces\TeacherRepositoryInterface;
 use App\Interfaces\TimingRepositoryInterface;
 use App\Interfaces\WeekRepositoryInterface;
 use App\Interfaces\YearRepositoryInterface;
 use App\Repositories\GlobalWeekRepository;
 use App\Repositories\GroupRepository;
 use App\Repositories\ModuleRepository;
+use App\Repositories\RoomRepository;
 use App\Repositories\SectionRepository;
 use App\Repositories\SectorRepository;
 use App\Repositories\SessionRepository;
+use App\Repositories\TeacherRepository;
 use App\Repositories\TimingRepository;
 use App\Repositories\WeekRepository;
 use App\Repositories\YearRepository;
@@ -40,6 +44,8 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SessionRepositoryInterface::class, SessionRepository::class);
         $this->app->bind(TimingRepositoryInterface::class, TimingRepository::class);
         $this->app->bind(SectorRepositoryInterface::class, SectorRepository::class);
+        $this->app->bind(TeacherRepositoryInterface::class, TeacherRepository::class);
+        $this->app->bind(RoomRepositoryInterface::class, RoomRepository::class);
     }
 
     /**

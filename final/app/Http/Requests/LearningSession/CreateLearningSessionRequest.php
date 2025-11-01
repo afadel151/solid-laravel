@@ -5,17 +5,8 @@ namespace App\Http\Requests\LearningSession;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-enum SessionType: string
-{
-    case LECTURE = "lecture";
-    case LAB = "lab";
-    case DW = "dw";
-}
-enum SessionableType: string
-{
-    case SECTION = 'App\\Models\\Section';
-    case GROUP = 'App\\Models\\Group';
-}
+
+
 class CreateLearningSessionRequest extends FormRequest
 {
     /**
