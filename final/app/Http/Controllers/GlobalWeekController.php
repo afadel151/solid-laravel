@@ -6,6 +6,7 @@ use App\Http\Requests\GlobalWeek\CreateGlobalWeekRequest;
 use App\Http\Requests\GlobalWeek\UpdateGlobalWeekRequest;
 use App\Http\Resources\GlobalWeek\GlobalWeekCollection;
 use App\Http\Resources\GlobalWeek\GlobalWeekResource;
+use App\Http\Resources\Year\YearCollection;
 use App\Services\GlobalWeekService;
 use Illuminate\Support\Arr;
 use Inertia\Inertia;
@@ -22,9 +23,10 @@ class GlobalWeekController extends Controller
     public function index()
     {
         $globalWeeks = $this->globalWeekService->getAll();
-
+        $years = $this->globalWeekService->get_years();
         return Inertia::render('global_weeks/Index', [
             'global_weeks' => new GlobalWeekCollection($globalWeeks),
+            'years'=> new YearCollection($years),
         ]);
 
     }

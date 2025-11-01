@@ -26,6 +26,7 @@ class CreateWeekRequest extends FormRequest
         return [
             'global_week_id'=>'integer|exists:global_weeks,id|required',
             'year_id'=>'integer|exists:years,id|required',
+            'week_type'=>'string',
             'semester'=>['required',Rule::enum(Semesters::class)],
         ];
     }

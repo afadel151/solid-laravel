@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('global_week_id')->constrained('global_weeks')->onDelete('CASCADE');
             $table->foreignId('year_id')->constrained('years')->onDelete('CASCADE');
+            $table->string('week_type');
+
             $table->enum('semester', ['1', '2'])->default('1');
             $table->timestamps();
         });

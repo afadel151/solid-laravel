@@ -17,7 +17,6 @@ class GlobalWeekSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             GlobalWeek::create([
                 'global_week_number' => $i,
-                'global_week_type' => $faker->randomElement(['Type A', 'Type B', 'Type C']),
                 'start_week_date' => now()->startOfYear()->addWeeks($i),
             ]);
         }

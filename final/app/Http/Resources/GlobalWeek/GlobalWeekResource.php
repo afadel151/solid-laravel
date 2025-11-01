@@ -17,10 +17,8 @@ class GlobalWeekResource extends JsonResource
         return [
             'id' => $this->id,
             'global_week_number' => $this->global_week_number,
-            'global_week_type' => $this->global_week_type,
             'start_week_date' => $this->start_week_date,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'weeks'=> $this->weeks,
         ];
     }
 }

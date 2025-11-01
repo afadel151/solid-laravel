@@ -10,6 +10,7 @@ class Week extends Model
 {
     protected $fillable = [
         'global_week_id',
+        'week_type',
         'year_id',
         'semester',
     ];

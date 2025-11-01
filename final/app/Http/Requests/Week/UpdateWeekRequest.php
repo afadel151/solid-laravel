@@ -28,8 +28,10 @@ class UpdateWeekRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id'=>'integer|unique:weeks,id|required',
             'global_week_id'=>'integer|exists:global_weeks,id|required',
             'year_id'=>'integer|exists:years,id|required',
+            'week_type'=>'string',
             'semester'=>['required',Rule::enum(Semesters::class)],
         ];
     }

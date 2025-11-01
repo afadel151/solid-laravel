@@ -23,7 +23,6 @@ class UpdateGlobalWeekRequest extends FormRequest
     {
         return [
             'id'=>'integer|required',
-            'global_week_type'=>'string',
             'start_week_date'=>'date'
         ];
     }

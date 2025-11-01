@@ -8,7 +8,6 @@ class GlobalWeek extends Model
 {
     protected $fillable = [
         'global_week_number',
-        'global_week_type',
         'start_week_date',
     ];
 

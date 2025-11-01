@@ -18,6 +18,7 @@ class WeekResource extends JsonResource
             'id' => $this->id,
             'year_id' => $this->year_id,
             'global_week_id' => $this->global_week_id,
+            'week_type'=> $this->week_type,
             'semester' => $this->semester,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

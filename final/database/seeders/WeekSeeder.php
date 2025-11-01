@@ -6,7 +6,7 @@ use App\Models\GlobalWeek;
 use App\Models\Week;
 use App\Models\Year;
 use Illuminate\Database\Seeder;
-
+use Faker\Factory as Faker;
 class WeekSeeder extends Seeder
 {
     /**
@@ -14,6 +14,7 @@ class WeekSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = Faker::create();
         $global_weeks = GlobalWeek::all()->pluck('id')->toArray();
         $years = Year::all()->pluck('id')->toArray();
         $global_weeks_count = count($global_weeks);
@@ -24,8 +25,9 @@ class WeekSeeder extends Seeder
             foreach ($years as $year) {
                 Week::create([
                     'global_week_id' => $global_week,
-                    'year_id' => $year,
+                    'year_id' => $year, 
                     'semester' => 1,
+                    'week_type' => $faker->randomElement(['Type A', 'Type B', 'Type C']),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
@@ -37,6 +39,7 @@ class WeekSeeder extends Seeder
                     'global_week_id' => $global_week,
                     'year_id' => $year,
                     'semester' => 2,
+                    'week_type' => $faker->randomElement(['Type A', 'Type B', 'Type C']),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

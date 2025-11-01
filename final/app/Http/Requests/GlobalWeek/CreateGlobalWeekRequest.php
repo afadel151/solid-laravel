@@ -24,7 +24,6 @@ class CreateGlobalWeekRequest extends FormRequest
     {
         return [
             'global_week_number'=>'integer|required',
-            'global_week_type'=> 'string|required',
             'start_week_date'=>'date|required'
         ];
     }

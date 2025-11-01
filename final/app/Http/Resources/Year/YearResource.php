@@ -16,6 +16,7 @@ class YearResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            
             'year' => $this->year,
         ];
     }

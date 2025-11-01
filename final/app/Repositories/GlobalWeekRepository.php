@@ -9,7 +9,7 @@ class GlobalWeekRepository implements GlobalWeekRepositoryInterface
 {
     public function all()
     {
-        return GlobalWeek::all();
+        return GlobalWeek::with(['weeks'])->get();
     }
 
     public function find($id)
