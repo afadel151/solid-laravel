@@ -8,8 +8,12 @@ use App\Http\Resources\GlobalWeek\GlobalWeekCollection;
 use App\Http\Resources\GlobalWeek\GlobalWeekResource;
 use App\Http\Resources\Year\YearCollection;
 use App\Services\GlobalWeekService;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log as FacadesLog;
 use Inertia\Inertia;
+
 
 class GlobalWeekController extends Controller
 {

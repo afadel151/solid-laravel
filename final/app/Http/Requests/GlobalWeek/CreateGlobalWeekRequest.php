@@ -23,8 +23,7 @@ class CreateGlobalWeekRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'global_week_number'=>'integer|required',
-            'start_week_date'=>'date|required'
+            'new_weeks'=>'required',
         ];
     }
 }
