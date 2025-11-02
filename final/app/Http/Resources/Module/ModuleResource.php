@@ -17,6 +17,8 @@ class ModuleResource extends JsonResource
         return [
             'id' => $this->id,
             'module_name' => $this->module_name,
+            'teachers_count'=> $this->teachers->count(),
+            'sectors_count'=>$this->sectors->count()
         ];
     }
 }

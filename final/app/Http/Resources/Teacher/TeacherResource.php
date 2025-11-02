@@ -19,6 +19,8 @@ class TeacherResource extends JsonResource
             'teacher_name' => $this->teacher_name,
             'teacher_grade' => $this->teacher_grade,
             'teacher_email' => $this->teacher_email,
+            'absent_sessions_count'=> $this->absent_sessions_count,
+            'modules'=>$this->modules->count(),
         ];
     }
 }

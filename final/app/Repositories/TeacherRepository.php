@@ -9,7 +9,13 @@ class TeacherRepository implements TeacherRepositoryInterface
 {
     public function all()
     {
-        return Teacher::all();
+        return Teacher::withCount([
+            'modules',
+            'sessions as absent_sessions_count' => function ($query) {
+                $query->where('absented', true)
+                ->where('caughtup', false);
+            },
+        ])->get();
     }
 
     public function find($id)

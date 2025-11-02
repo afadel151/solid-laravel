@@ -10,7 +10,7 @@ class ModuleRepository implements ModuleRepositoryInterface
 {
     public function all(): Collection
     {
-        return Module::all();
+        return Module::with('teachers','sectors')->get();
     }
 
     public function findModuleById(int $id): ?Module
